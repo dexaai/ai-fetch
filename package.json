@@ -1,0 +1,60 @@
+{
+  "name": "ai-fetch",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Tiny fetch interface for AI providers",
+  "repository": "dexaai/ai-fetch",
+  "license": "MIT",
+  "author": {
+    "name": "Riley Tomasek",
+    "email": "hi@rile.yt",
+    "url": "https://rile.yt"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "openai-types"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.dist.json",
+    "clean": "rimraf dist openai-types node_modules",
+    "clean:build": "rimraf dist openai-types",
+    "dev": "tsc --watch",
+    "extract-types": "node extract-types.mjs",
+    "fix": "eslint --fix --quiet . ; prettier --write --log-level=silent .",
+    "format": "prettier --check \"**/*.{js,ts,tsx}\"",
+    "lint": "eslint src",
+    "prebuild": "pnpm run clean:build && pnpm run extract-types",
+    "prepare": "pnpm run build",
+    "prepublishOnly": "pnpm run test",
+    "pretest": "pnpm run build",
+    "release": "np",
+    "test": "pnpm run lint && pnpm run typecheck",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ky": "^1.4.0"
+  },
+  "devDependencies": {
+    "@dexaai/eslint-config": "^1.3.0",
+    "eslint": "^8.57.0",
+    "np": "^10.0.7",
+    "openai": "^4.56.0",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.3"
+  }
+}
