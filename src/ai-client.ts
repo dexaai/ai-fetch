@@ -24,7 +24,6 @@ type RequestOpts = {
 export interface BaseAIFetchClient {
   name: string;
   api: KyInstance;
-  getApi(opts?: KyOptions): KyInstance;
 }
 
 export interface AIChatClient<

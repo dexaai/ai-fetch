@@ -1,4 +1,4 @@
-export {
+export type {
   APIConnectionError,
   APIConnectionTimeoutError,
   APIError,
@@ -13,7 +13,8 @@ export {
   RateLimitError,
   UnprocessableEntityError,
 } from './errors.js';
-export { 
+export type { 
+  BaseAIFetchClient,
   AIChatClient,
   AICompletionClient,
   AIEmbeddingClient,
@@ -32,3 +33,7 @@ export type {
   EmbeddingParams,
   EmbeddingResponse,
 } from './types.js';
+export {
+  createApiInstance,
+  type KyOptions,
+} from './fetch-api.js';

@@ -34,10 +34,21 @@ This package exports [ESM](https://gist.github.com/sindresorhus/a39789f98801d908
 
 ### Definining a AI Client
 
-```ts
-import  { type BaseAIClient, type AIChatClient } from 'ai-fetch';
+A client that implements an `AIChatClient`:
 
-class YourAIClient implements BaseAIClient, AIChatClient {
+```ts
+import  { type BaseAIClient, type AIChatClient, createApiInstance } from 'ai-fetch';
+
+class YourAIClient implements BaseAIFetchClient, AIChatClient {
+  name = 'YourAIClient'
+  api: KyInstance
+
+  constructor() {
+    // Create a fetch api client for your provider using the helper function provided.
+    this.api = createApiInstance({
+        //... provide your ai provider opts here
+    })
+  }
 
   /** Create a completion for a chat message. */
   async createChatCompletion(
@@ -57,7 +68,6 @@ class YourAIClient implements BaseAIClient, AIChatClient {
 }
 
 ```
-d
 
 ## API
 
