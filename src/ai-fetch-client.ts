@@ -17,12 +17,12 @@ import {
 } from './types.js';
 
 /** Override the default Ky options for a single request. */
-type RequestOpts = {
+export type AIFetchRequestOpts = {
   headers?: KyOptions['headers'];
   signal?: AbortSignal;
 };
 
-export interface BaseAIFetchClient {
+export interface AIFetchClient {
   name: string;
   api: KyInstance;
 }
@@ -30,43 +30,43 @@ export interface BaseAIFetchClient {
 export interface AIChatClient<
   TChatCompletion extends string = string,
   TChatStream extends string = string
-> extends BaseAIFetchClient {
+> extends AIFetchClient {
   createChatCompletion(
     params: ChatParams<TChatCompletion>,
-    opts?: RequestOpts
+    opts?: AIFetchRequestOpts
   ): Promise<ChatResponse>;
 
   streamChatCompletion(
     params: ChatStreamParams<TChatStream>,
-    opts?: RequestOpts
+    opts?: AIFetchRequestOpts
   ): Promise<ChatStreamResponse>;
 }
 
 export interface AICompletionClient<
   TCompletion extends string = string,
   TCompletionStream extends string = string
-> extends BaseAIFetchClient {
+> extends AIFetchClient {
   createCompletions(
     params: CompletionParams<TCompletion>,
-    opts?: RequestOpts
+    opts?: AIFetchRequestOpts
   ): Promise<CompletionResponse>;
 
   streamCompletion(
     params: CompletionStreamParams<TCompletionStream>,
-    opts?: RequestOpts
+    opts?: AIFetchRequestOpts
   ): Promise<CompletionStreamResponse>;
 }
 
-export interface AIEmbeddingClient<TEmbedding extends string = string> extends BaseAIFetchClient {
+export interface AIEmbeddingClient<TEmbedding extends string = string> extends AIFetchClient {
   createEmbeddings(
     params: EmbeddingParams<TEmbedding>,
-    opts?: RequestOpts
+    opts?: AIFetchRequestOpts
   ): Promise<EmbeddingResponse>;
 }
 
-export interface AIModerationClient<TModeration extends string = string> extends BaseAIFetchClient {
+export interface AIModerationClient<TModeration extends string = string> extends AIFetchClient {
   createModeration(
     params: ModerationParams<TModeration>,
-    opts?: RequestOpts
+    opts?: AIFetchRequestOpts
   ): Promise<ModerationResponse>;
 }

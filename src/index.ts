@@ -2,9 +2,10 @@ export type {
   AIChatClient,
   AICompletionClient,
   AIEmbeddingClient,
+  AIFetchClient,
+  AIFetchRequestOpts,
   AIModerationClient,
-  BaseAIFetchClient,
- } from './ai-client.js';
+ } from './ai-fetch-client.js';
 export type {
   APIConnectionError,
   APIConnectionTimeoutError,
@@ -28,6 +29,7 @@ export type {
   ChatMessage,
   ChatParams,
   ChatResponse,
+  ChatStreamChunk,
   ChatStreamParams,
   ChatStreamResponse,
   CompletionParams,
@@ -36,4 +38,6 @@ export type {
   CompletionStreamResponse,
   EmbeddingParams,
   EmbeddingResponse,
+  ModerationParams,
+  ModerationResponse,
 } from './types.js';
