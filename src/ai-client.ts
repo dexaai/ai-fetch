@@ -1,4 +1,5 @@
 import { type KyInstance } from 'ky';
+
 import { type KyOptions } from './fetch-api.js';
 import {
   type ChatParams,
