@@ -82,6 +82,3 @@ export type CompletionStreamResponse = ReadableStream<OpenAI.Completion>;
 
 export type EmbeddingParams<M extends string> = Omit<OpenAI.EmbeddingCreateParams, 'model'> & { model: M };
 export type EmbeddingResponse = OpenAI.CreateEmbeddingResponse;
-
-export type ModerationParams<M extends string> = Omit<OpenAI.ModerationCreateParams, 'model'> & { model: M };
-export type ModerationResponse = OpenAI.ModerationCreateResponse;

@@ -4,7 +4,6 @@ export type {
   AIEmbeddingClient,
   AIFetchClient,
   AIFetchRequestOpts,
-  AIModerationClient,
  } from './ai-fetch-client.js';
 export type {
   APIConnectionError,
@@ -38,6 +37,4 @@ export type {
   CompletionStreamResponse,
   EmbeddingParams,
   EmbeddingResponse,
-  ModerationParams,
-  ModerationResponse,
 } from './types.js';

@@ -1,5 +1,5 @@
 {
-  "name": "@dexaai/ai-fetch",
+  "name": "ai-fetch",
   "type": "module",
   "version": "0.0.1",
   "description": "Tiny fetch interface for AI providers",

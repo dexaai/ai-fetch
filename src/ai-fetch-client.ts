@@ -12,8 +12,6 @@ import {
   type CompletionStreamResponse,
   type EmbeddingParams,
   type EmbeddingResponse,
-  type ModerationParams,
-  type ModerationResponse,
 } from './types.js';
 
 /** Override the default Ky options for a single request. */
@@ -62,11 +60,4 @@ export interface AIEmbeddingClient<TEmbedding extends string = string> extends A
     params: EmbeddingParams<TEmbedding>,
     opts?: AIFetchRequestOpts
   ): Promise<EmbeddingResponse>;
-}
-
-export interface AIModerationClient<TModeration extends string = string> extends AIFetchClient {
-  createModeration(
-    params: ModerationParams<TModeration>,
-    opts?: AIFetchRequestOpts
-  ): Promise<ModerationResponse>;
 }
