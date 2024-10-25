@@ -1,10 +1,10 @@
-export type { 
+export type {
   AIChatClient,
   AICompletionClient,
   AIEmbeddingClient,
   AIFetchClient,
   AIFetchRequestOpts,
- } from './ai-fetch-client.js';
+} from './ai-fetch-client.js';
 export type {
   APIConnectionError,
   APIConnectionTimeoutError,
@@ -20,10 +20,7 @@ export type {
   RateLimitError,
   UnprocessableEntityError,
 } from './errors.js';
-export {
-  createApiInstance,
-  type KyOptions,
-} from './fetch-api.js';
+export { createApiInstance, type KyOptions } from './fetch-api.js';
 export type {
   ChatMessage,
   ChatParams,

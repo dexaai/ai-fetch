@@ -40,7 +40,7 @@ export function createApiInstance(opts: KyOptions): KyInstance {
   });
 
   return ky.extend({
-    prefixUrl, 
+    prefixUrl,
     headers,
     retry: retry ?? {
       delay: (attemptCount) => {

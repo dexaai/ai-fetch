@@ -27,7 +27,7 @@ export interface AIFetchClient {
 
 export interface AIChatClient<
   TChatCompletion extends string = string,
-  TChatStream extends string = string
+  TChatStream extends string = string,
 > extends AIFetchClient {
   createChatCompletion(
     params: ChatParams<TChatCompletion>,
@@ -42,7 +42,7 @@ export interface AIChatClient<
 
 export interface AICompletionClient<
   TCompletion extends string = string,
-  TCompletionStream extends string = string
+  TCompletionStream extends string = string,
 > extends AIFetchClient {
   createCompletions(
     params: CompletionParams<TCompletion>,
@@ -55,7 +55,8 @@ export interface AICompletionClient<
   ): Promise<CompletionStreamResponse>;
 }
 
-export interface AIEmbeddingClient<TEmbedding extends string = string> extends AIFetchClient {
+export interface AIEmbeddingClient<TEmbedding extends string = string>
+  extends AIFetchClient {
   createEmbeddings(
     params: EmbeddingParams<TEmbedding>,
     opts?: AIFetchRequestOpts

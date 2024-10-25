@@ -62,23 +62,34 @@ export type ChatMessage = {
   name?: string;
 };
 
-export type ChatParams<M extends string> = 
-Omit<OpenAI.ChatCompletionCreateParams, 'stream' | 'messages' | 'model'> & {
+export type ChatParams<M extends string> = Omit<
+  OpenAI.ChatCompletionCreateParams,
+  'stream' | 'messages' | 'model'
+> & {
   messages: ChatMessage[];
   model: M;
-} 
+};
 
 export type ChatResponse = OpenAI.ChatCompletion;
 
-export type ChatStreamParams<M extends string> = ChatParams<M>
+export type ChatStreamParams<M extends string> = ChatParams<M>;
 export type ChatStreamChunk = OpenAI.ChatCompletionChunk;
 export type ChatStreamResponse = ReadableStream<ChatStreamChunk>;
 
-export type CompletionParams<M extends string> = Omit<OpenAI.CompletionCreateParams, 'model'> & { model: M };
+export type CompletionParams<M extends string> = Omit<
+  OpenAI.CompletionCreateParams,
+  'model'
+> & { model: M };
 export type CompletionResponse = OpenAI.Completion;
 
-export type CompletionStreamParams<M extends string> = Omit<CompletionParams<M>, 'stream'>;
+export type CompletionStreamParams<M extends string> = Omit<
+  CompletionParams<M>,
+  'stream'
+>;
 export type CompletionStreamResponse = ReadableStream<OpenAI.Completion>;
 
-export type EmbeddingParams<M extends string> = Omit<OpenAI.EmbeddingCreateParams, 'model'> & { model: M };
+export type EmbeddingParams<M extends string> = Omit<
+  OpenAI.EmbeddingCreateParams,
+  'model'
+> & { model: M };
 export type EmbeddingResponse = OpenAI.CreateEmbeddingResponse;
